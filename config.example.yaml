@@ -1,0 +1,37 @@
+# Planes Overhead configuration - example.
+# Copy to config.yaml and fill in the two private values (webhook_url, ntfy_topic).
+
+home:
+  lat: null        # leave both null to use the location you set in readsb
+  lon: null
+
+radius_miles: 5        # the range shown on the display
+log_margin_miles: 1    # log a little beyond it so tracks reach the edge cleanly
+poll_seconds: 5
+retain_hours: 48
+
+aircraft_json: /run/readsb/aircraft.json
+receiver_json: /run/readsb/receiver.json
+database: planes.db    # stored in this folder
+
+trmnl:
+  webhook_url: ""   # your TRMNL Webhook Image address
+
+# Phone alerts, sent through the ntfy app.
+alerts:
+  enabled: true
+  ntfy_topic: ""   # a private topic name; subscribe to it in the ntfy app
+  quiet_hours: "22:00-07:00"                # "" for none
+  repeat_minutes: 60                        # silence per aircraft, per kind of alert
+  circling:
+    enabled: true
+    max_altitude_ft: 10000
+  airport:                                  # traffic to or from Southend
+    enabled: true
+    route_lookup: true                      # look up airline routes online (adsbdb.com)
+  interesting:
+    enabled: true
+    helicopters: true
+    military: true
+    database_flagged: true                  # aircraft the database marks as noteworthy
+    types: [SPIT, HURI, LANC, B17, P51, DC3, C47, CAT, DH82, DH89, DHC1, T6, ST75, YK52, HUNT, VAMP, JPRO, GNAT]

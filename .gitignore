@@ -1,0 +1,8 @@
+# private settings: TRMNL webhook address and ntfy topic work as passwords
+config.yaml
+# data produced on the Pi
+planes.db*
+planes.png
+map_cache.json
+__pycache__/
+*.pyc
